@@ -1,5 +1,7 @@
 package com.linkedin.collections;
 
+import java.util.ArrayDeque;
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class Application {
@@ -11,7 +13,20 @@ public class Application {
 		Guest sonia = new Guest("Sonia", "Doe", true); //loyalty program
 		Guest siri = new Guest("Siri", "Doe", true); //loyalty program
 
+		Queue<Guest> checkInQueue = new ArrayDeque<>();
+		checkInQueue.offer(john);
+		checkInQueue.offer(bob);
+		checkInQueue.offer(sonia);
+		checkInQueue.offer(siri);
+		print(checkInQueue);
 
+		Guest guest1 = checkInQueue.poll();
+		print(checkInQueue);
+		System.out.println(guest1);
+
+		Guest guest2 = checkInQueue.peek();
+		print(checkInQueue);
+		System.out.println(guest2);
 
 	}
 
