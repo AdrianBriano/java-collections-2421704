@@ -1,8 +1,6 @@
 package com.linkedin.collections;
 
-import java.util.ArrayDeque;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class Application {
 
@@ -13,7 +11,9 @@ public class Application {
 		Guest sonia = new Guest("Sonia", "Doe", true); //loyalty program
 		Guest siri = new Guest("Siri", "Doe", true); //loyalty program
 
-		Queue<Guest> checkInQueue = new ArrayDeque<>();
+		Comparator<Guest> programComp = Comparator.comparing(Guest::isLoyaltyProgramMember).reversed();
+		Queue<Guest> checkInQueue = new PriorityQueue<>(programComp);
+
 		checkInQueue.offer(john);
 		checkInQueue.offer(bob);
 		checkInQueue.offer(sonia);
