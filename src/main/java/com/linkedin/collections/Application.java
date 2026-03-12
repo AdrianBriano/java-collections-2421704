@@ -2,6 +2,8 @@ package com.linkedin.collections;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 public class Application {
 
@@ -16,11 +18,14 @@ public class Application {
 		Map<Room, Guest> assignments = new HashMap<>();
 		assignments.put(oxford, maria);
 		assignments.put(piccadilly, john);
-		
-		
-		
-		
-				
+
+//		Set<Entry<Room, Guest>> entrySet = assignments.entrySet();
+
+		for (Entry<Room, Guest> entry : assignments.entrySet()) {
+			Room room = entry.getKey();
+			Guest guest = entry.getValue();
+			System.out.format("Room %s : %s%n", room.getName(), guest.getFirstName());
+		}
 	}
 
 }
